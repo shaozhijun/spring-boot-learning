@@ -1,0 +1,13 @@
+package com.shaozj.test;
+
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.shaozj.activemq.ActiveMqApplication;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = ActiveMqApplication.class)
+public class BaseTest {
+
+}
