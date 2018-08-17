@@ -1,11 +1,11 @@
 /**
  * 
- * Í¨¹ýredisÊµÏÖÏûÏ¢¶ÓÁÐ
+ * é€šè¿‡rediså®žçŽ°æ¶ˆæ¯é˜Ÿåˆ—
  * 
- * Ä¿Ç°³£ÓÃµÄÏûÏ¢¶ÓÁÐÖ÷ÒªÓÐRabbitMQµÈAMQPÏµÁÐ, Kafka, RedisµÈkev valueÏµÁÐ£¬ËüÃÇµÄÊ¹ÓÃ³¡¾°·Ö±ðÊÇ£º
- * 1.RabbitMQ£ºÏà¶ÔÖØÁ¿¼¶¸ß²¢·¢µÄÇé¿ö£¬±ÈÈçÊý¾ÝµÄÒì²½´¦Àí¡¢ÈÎÎñµÄ´®ÐÐÖ´ÐÐµÈ¡£
- * 2.Kafka£º»ùÓÚpullµÄÄ£Ê½À´´¦Àí£¬¾ßÌåºÜ¸ßµÄÍÌÍÂÁ¿£¬Ò»°ãÓÃÀ´½øÐÐÈÕÖ¾´æ´¢ºÍÊÕ¼¯
- * 3.Redis£ºÇáÁ¿¼¶¸ß²¢·¢£¬ÊµÊ±ÐÔÒªÇó¸ßµÄÇé¿ö£¬±ÈÈç»º´æ¡¢ÃëÉ±£¬¼°Ê±µÄÊý¾Ý·ÖÎö£¨elkÈÕÖ¾·ÖÎö¿ò¼Ü£¬Ê¹ÓÃµÄ¾ÍÊÇredis£©
+ * ç›®å‰å¸¸ç”¨çš„æ¶ˆæ¯é˜Ÿåˆ—ä¸»è¦æœ‰RabbitMQç­‰AMQPç³»åˆ—, Kafka, Redisç­‰kev valueç³»åˆ—ï¼Œå®ƒä»¬çš„ä½¿ç”¨åœºæ™¯åˆ†åˆ«æ˜¯ï¼š
+ * 1.RabbitMQï¼šç›¸å¯¹é‡é‡çº§é«˜å¹¶å‘çš„æƒ…å†µï¼Œæ¯”å¦‚æ•°æ®çš„å¼‚æ­¥å¤„ç†ã€ä»»åŠ¡çš„ä¸²è¡Œæ‰§è¡Œç­‰ã€‚
+ * 2.Kafkaï¼šåŸºäºŽpullçš„æ¨¡å¼æ¥å¤„ç†ï¼Œå…·ä½“å¾ˆé«˜çš„åžåé‡ï¼Œä¸€èˆ¬ç”¨æ¥è¿›è¡Œæ—¥å¿—å­˜å‚¨å’Œæ”¶é›†
+ * 3.Redisï¼šè½»é‡çº§é«˜å¹¶å‘ï¼Œå®žæ—¶æ€§è¦æ±‚é«˜çš„æƒ…å†µï¼Œæ¯”å¦‚ç¼“å­˜ã€ç§’æ€ï¼ŒåŠæ—¶çš„æ•°æ®åˆ†æžï¼ˆelkæ—¥å¿—åˆ†æžæ¡†æž¶ï¼Œä½¿ç”¨çš„å°±æ˜¯redisï¼‰
  * @author Administrator
  *
  */
