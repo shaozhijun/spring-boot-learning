@@ -1,6 +1,6 @@
 package com.shaozj.async.exception;
 
-public class AsyncException extends Exception {
+public class AsyncException extends RuntimeException {
 
 	/**
 	 * 

@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSONObject;
+import com.shaozj.async.exception.AsyncException;
 
 @Component
 public class AsyncService {
@@ -32,7 +33,7 @@ public class AsyncService {
 	public void asyncWithException(String parem) {
 		
 		logger.info("asyncWithException, parem={}", parem);
-        throw new IllegalArgumentException(parem);
+        throw new AsyncException(parem);
 	}
 	
 	
