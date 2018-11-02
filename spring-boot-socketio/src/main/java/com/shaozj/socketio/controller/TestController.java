@@ -24,4 +24,14 @@ public class TestController {
 		socketIOService.sendCount("queuecount", count);
 		return "success";
 	}
+	
+	@RequestMapping("/chat1")
+	public String chat1() {
+		return "/chat1";
+	}
+	
+	@RequestMapping("/chat2")
+	public String chat2() {
+		return "/chat2";
+	}
 }
