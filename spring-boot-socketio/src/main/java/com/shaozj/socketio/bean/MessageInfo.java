@@ -3,22 +3,22 @@ package com.shaozj.socketio.bean;
 public class MessageInfo {
 	
 	/**
-	 * 源客户端id
+	 * 婧愬鎴风id
 	 */
 	private String sourceClientId;
 	
 	/**
-	 * 目标客户端id
+	 * 鐩爣瀹㈡埛绔痠d
 	 */
 	private String targetClientId;
 	
 	/**
-	 * 消息类型
+	 * 娑堟伅绫诲瀷
 	 */
 	private String msgType;
 	
 	/**
-	 * 消息内容
+	 * 娑堟伅鍐呭
 	 */
 	private String msgContent;
 

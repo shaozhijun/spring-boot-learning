@@ -4,7 +4,7 @@ public interface ISocketIOService {
 	
 	/**
 	 * 
-	 * <p>Description: 刷新客户端（浏览器）信息</p>
+	 * <p>Description: 鍒锋柊瀹㈡埛绔紙娴忚鍣級淇℃伅</p>
 	 * @param eventType
 	 * @param count
 	 */

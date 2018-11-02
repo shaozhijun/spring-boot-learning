@@ -14,7 +14,7 @@ public class ClientInfo {
 	private Long id;
 	
 	/**
-	 * ÊÇ·ñÁ¬½Ó
+	 * æ˜¯å¦è¿æ¥
 	 */
 	private Short connected;
 	

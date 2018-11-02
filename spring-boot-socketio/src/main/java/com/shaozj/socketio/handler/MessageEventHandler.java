@@ -24,13 +24,13 @@ import com.shaozj.socketio.repository.ClientInfoRepository;
  * ClassName: MessageEventHandler
  * </p>
  * <p>
- * Description: ´¦Àí¿Í»§¶Ë´¥·¢ÊÂ¼ş
+ * Description: å¤„ç†å®¢æˆ·ç«¯è§¦å‘äº‹ä»¶
  * </p>
  * <p>
  * Author: szj
  * </p>
  * <p>
- * Date: 2018Äê11ÔÂ1ÈÕ
+ * Date: 2018å¹´11æœˆ1æ—¥
  * </p>
  */
 @Component
@@ -46,8 +46,8 @@ public class MessageEventHandler {
 	/**
 	 * 
 	 * <p>
-	 * Description: Ìí¼Ó connectÊÂ¼ş,µ±¿Í»§¶Ë·¢ÆğÁ´½ÓÊ±µ÷ÓÃ ´Ë´¦½«clientidÓësessionid´æÈëÊı¾İ¿âÖĞ
-	 * ·½±ãºóÃæ·¢ËÍÏûÏ¢Ê±²éÕÒµ½¶ÔÓ¦µÄÄ¿±êclient
+	 * Description: æ·»åŠ  connectäº‹ä»¶,å½“å®¢æˆ·ç«¯å‘èµ·é“¾æ¥æ—¶è°ƒç”¨ æ­¤å¤„å°†clientidä¸sessionidå­˜å…¥æ•°æ®åº“ä¸­
+	 * æ–¹ä¾¿åé¢å‘é€æ¶ˆæ¯æ—¶æŸ¥æ‰¾åˆ°å¯¹åº”çš„ç›®æ ‡client
 	 * </p>
 	 * 
 	 * @param client
@@ -60,30 +60,30 @@ public class MessageEventHandler {
 			Date nowTime = new Date(System.currentTimeMillis());
 			clientInfo.setConnected((short) 1);
 			System.out.println(client.getSessionId().getLeastSignificantBits());
-			// ÓÃÀ´·µ»Ø´ËUUIDµÄ128Î»×îÏÔÖø64Î»Öµ
+			// ç”¨æ¥è¿”å›æ­¤UUIDçš„128ä½æœ€æ˜¾è‘—64ä½å€¼
 			clientInfo.setMostsignbits(client.getSessionId().getMostSignificantBits());
-			// ÓÃÀ´·µ»Ø´ËUUIDµÄ128Î»ÖµµÄÖÁÉÙÏÔÖø64Î»¡£
+			// ç”¨æ¥è¿”å›æ­¤UUIDçš„128ä½å€¼çš„è‡³å°‘æ˜¾è‘—64ä½ã€‚
 			clientInfo.setLeastsignbits(client.getSessionId().getLeastSignificantBits());
 			clientInfo.setLastconnecteddate(nowTime);
 			clientInfoRepository.save(clientInfo);
-			// jwtÑéÖ¤
-			logger.info("Á´½Ó³É¹¦");
+			// jwtéªŒè¯
+			logger.info("é“¾æ¥æˆåŠŸ");
 		} else {
-			logger.error("¿Í»§¶ËÎª¿Õ");
+			logger.error("å®¢æˆ·ç«¯ä¸ºç©º");
 		}
 	}
 
 	/**
 	 * 
 	 * <p>
-	 * Description: Ìí¼ÓonDisconnectÊÂ¼ş£¬¿Í»§¶Ë¶Ï¿ªÁ´½ÓÊ±µ÷ÓÃ£¬Ë¢ĞÂ¿Í»§¶ËĞÅÏ¢
+	 * Description: æ·»åŠ onDisconnectäº‹ä»¶ï¼Œå®¢æˆ·ç«¯æ–­å¼€é“¾æ¥æ—¶è°ƒç”¨ï¼Œåˆ·æ–°å®¢æˆ·ç«¯ä¿¡æ¯
 	 * </p>
 	 * 
 	 * @param client
 	 */
 	@OnDisconnect
 	public void onDisconnect(SocketIOClient client) {
-		logger.info("¿Í»§¶Ë¶Ï¿ªÁ¬½Ó, sessionId=" + client.getSessionId().toString());
+		logger.info("å®¢æˆ·ç«¯æ–­å¼€è¿æ¥, sessionId=" + client.getSessionId().toString());
 		String clientId = client.getHandshakeData().getSingleUrlParam("clientid");
 		ClientInfo clientInfo = clientInfoRepository.findClientByclientid(clientId);
 		if (clientInfo != null) {
@@ -97,8 +97,8 @@ public class MessageEventHandler {
 	/**
 	 * 
 	 * <p>
-	 * Description: ÏûÏ¢Èë¿Ú
-	 * 	µ±½ÓÊÕµ½ÏûÏ¢ºó£¬²éÕÒ·¢ËÍÄ¿±ê¿Í»§¶Ë£¬²¢Ïë¸Ä¿Í»§¶Ë·¢ËÍĞÅÏ¢£¬ÇÒ¸ø×Ô¼º·¢ËÍĞÅÏ¢
+	 * Description: æ¶ˆæ¯å…¥å£
+	 * 	å½“æ¥æ”¶åˆ°æ¶ˆæ¯åï¼ŒæŸ¥æ‰¾å‘é€ç›®æ ‡å®¢æˆ·ç«¯ï¼Œå¹¶æƒ³æ”¹å®¢æˆ·ç«¯å‘é€ä¿¡æ¯ï¼Œä¸”ç»™è‡ªå·±å‘é€ä¿¡æ¯
 	 * </p>
 	 * 
 	 * @param client
@@ -107,7 +107,7 @@ public class MessageEventHandler {
 	 */
 	@OnEvent(value = "messageevent")
 	public void onEvent(SocketIOClient client, AckRequest ackRequest, MessageInfo message) {
-		logger.info("½ÓÊÕµ½¿Í»§¶ËÏûÏ¢");
+		logger.info("æ¥æ”¶åˆ°å®¢æˆ·ç«¯æ¶ˆæ¯");
 		String targetClientId = message.getTargetClientId();
 		ClientInfo clientInfo = clientInfoRepository.findClientByclientid(targetClientId);
 		if (clientInfo != null && clientInfo.getConnected() != 0) {
@@ -122,7 +122,7 @@ public class MessageEventHandler {
 			server.getClient(uuid).sendEvent("messageevent", sendData);
 		}
 		if (ackRequest.isAckRequested()) {
-			// ackRequest.sendAckData("·şÎñÆ÷»Ø´ğchatevent, userName=" + chat.getUserName() +
+			// ackRequest.sendAckData("æœåŠ¡å™¨å›ç­”chatevent, userName=" + chat.getUserName() +
 			// ",message=" + chat.getMessage());
 		}
 	}

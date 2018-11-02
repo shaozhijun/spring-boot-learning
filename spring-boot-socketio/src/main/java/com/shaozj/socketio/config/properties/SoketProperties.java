@@ -8,22 +8,22 @@ public class SoketProperties {
 	public static final String PREFIX = "shaozj";
 	
 	/**
-	 * socket端口
+	 * socket绔彛
 	 */
 	private Integer socketPort;
 	
 	/**
-	 * Ping消息间隔（毫秒）
+	 * Ping娑堟伅闂撮殧锛堟绉掞級
 	 */
 	private Integer pingInterval;
 	
 	/**
-	 * Ping消息超时时间（毫秒）
+	 * Ping娑堟伅瓒呮椂鏃堕棿锛堟绉掞級
 	 */
 	private Integer pingTimeout;
 	
 	/**
-	 * APK文件访问URL前缀
+	 * APK鏂囦欢璁块棶URL鍓嶇紑
 	 */
 	private String apkUrlPrefix;
 

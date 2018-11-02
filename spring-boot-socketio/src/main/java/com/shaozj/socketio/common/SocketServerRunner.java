@@ -15,15 +15,15 @@ import com.corundumstudio.socketio.SocketIOServer;
  * ClassName: SocketServerRunner
  * </p>
  * <p>
- * Description: Æô¶¯socket·şÎñ
- * Õâ¸ö·şÎñÓĞµã¶öÎÊÌâ£¬Ã¿´ÎÆô¶¯springbootÏîÄ¿µÄÊ±ºò£¬Õâ¸ö·şÎñ²»ÄÜ¼°Ê±¹Ø±Õ£¬¹Ø±Õspring-bootÏîÄ¿web·şÎñºó
- * µÈ¼¸ÃëÆô¶¯¼´¿É£¬Èç¹ûÁ¢¼´Æô¶¯»á±¨socket¶Ë¿Ú±»Õ¼ÓÃÒì³£
+ * Description: å¯åŠ¨socketæœåŠ¡
+ * è¿™ä¸ªæœåŠ¡æœ‰ç‚¹é¥¿é—®é¢˜ï¼Œæ¯æ¬¡å¯åŠ¨springbooté¡¹ç›®çš„æ—¶å€™ï¼Œè¿™ä¸ªæœåŠ¡ä¸èƒ½åŠæ—¶å…³é—­ï¼Œå…³é—­spring-booté¡¹ç›®webæœåŠ¡å
+ * ç­‰å‡ ç§’å¯åŠ¨å³å¯ï¼Œå¦‚æœç«‹å³å¯åŠ¨ä¼šæŠ¥socketç«¯å£è¢«å ç”¨å¼‚å¸¸
  * </p>
  * <p>
  * Author: szj
  * </p>
  * <p>
- * Date: 2018Äê11ÔÂ1ÈÕ
+ * Date: 2018å¹´11æœˆ1æ—¥
  * </p>
  */
 @Component
@@ -37,7 +37,7 @@ public class SocketServerRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		logger.info("ServerRunner ¿ªÊ¼Æô¶¯À²...");
+		logger.info("ServerRunner å¼€å§‹å¯åŠ¨å•¦...");
 		server.start();
 	}
 }

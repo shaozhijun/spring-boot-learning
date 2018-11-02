@@ -21,19 +21,19 @@ public class SocketConfig {
 	@Bean
 	public SocketIOServer socketIOServer() {
 		
-		//´´½¨SocketÅäÖÃ
+		//åˆ›å»ºSocketé…ç½®
 		com.corundumstudio.socketio.Configuration config = new com.corundumstudio.socketio.Configuration();
-		// ÉèÖÃ¼àÌı¶Ë¿Ú
+		// è®¾ç½®ç›‘å¬ç«¯å£
 		config.setPort(soketProperties.getSocketPort());
-		// Ğ­ÒéÉı¼¶³¬Ê±Ê±¼ä£¨ºÁÃë£©£¬Ä¬ÈÏ10000¡£HTTPÎÕÊÖÉı¼¶ÎªwsĞ­ÒéÊ±¼ä
+		// åè®®å‡çº§è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰ï¼Œé»˜è®¤10000ã€‚HTTPæ¡æ‰‹å‡çº§ä¸ºwsåè®®æ—¶é—´
 		config.setUpgradeTimeout(10000);
-		// PingÏûÏ¢¼ä¸ôÊ±¼ä£¨ºÁÃë£©£¬Ä¬ÈÏ25000¡£¿Í»§¶ËÏò·şÎñÆ÷·¢ËÍÒ»ÌõĞÄÌøÏûÏ¢Ê±¼ä¼ä¸ô
+		// Pingæ¶ˆæ¯é—´éš”æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰ï¼Œé»˜è®¤25000ã€‚å®¢æˆ·ç«¯å‘æœåŠ¡å™¨å‘é€ä¸€æ¡å¿ƒè·³æ¶ˆæ¯æ—¶é—´é—´éš”
 		config.setPingInterval(soketProperties.getPingInterval());
-		// PingÏûÏ¢³¬Ê±Ê±¼ä£¨ºÁÃë£©£¬Ä¬ÈÏ60000£¬Õâ¸öÊ±¼ä¼ä¸ôÄÚÃ»ÓĞÊÕµ½ĞÄÌøÏûÏ¢¾Í»á·¢ËÍ³¬Ê±ÊÂ¼ş
+		// Pingæ¶ˆæ¯è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰ï¼Œé»˜è®¤60000ï¼Œè¿™ä¸ªæ—¶é—´é—´éš”å†…æ²¡æœ‰æ”¶åˆ°å¿ƒè·³æ¶ˆæ¯å°±ä¼šå‘é€è¶…æ—¶äº‹ä»¶
 		config.setPingTimeout(soketProperties.getPingTimeout());
 		
-		// ÎÕÊÖĞ­Òé²ÎÊıÊ¹ÓÃJWTµÄtoken·½°¸
-		// ¸Ã³öÓÃÀ´×öÉí·İÑéÖ¤
+		// æ¡æ‰‹åè®®å‚æ•°ä½¿ç”¨JWTçš„tokenæ–¹æ¡ˆ
+		// è¯¥å‡ºç”¨æ¥åšèº«ä»½éªŒè¯
 		config.setAuthorizationListener(new AuthorizationListener() {
 			@Override
 			public boolean isAuthorized(HandshakeData data) {
