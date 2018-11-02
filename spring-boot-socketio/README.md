@@ -2,7 +2,7 @@
 ## Netty-SocketIO 即时消息推送
 ### 1、背景
 
-netty-socketio是基于netty的socket.io服务实现，可以无缝的对接前端使用的socketio-client.js。netty-socketio完整的实现了socket.io提供的监听前台事件、向指定客户端发送事件、将指定客户端加入指定房间事件、向指定房间广播事件、客户端从指定房间退出等 操作。
+  netty-socketio是基于netty的socket.io服务实现，可以无缝的对接前端使用的socketio-client.js。netty-socketio完整的实现了socket.io提供的监听前台事件、向指定客户端发送事件、将指定客户端加入指定房间事件、向指定房间广播事件、客户端从指定房间退出等 操作。
 
 
 
