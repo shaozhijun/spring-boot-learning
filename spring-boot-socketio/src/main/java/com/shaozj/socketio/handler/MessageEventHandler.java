@@ -69,6 +69,7 @@ public class MessageEventHandler {
 			// jwt验证
 			logger.info("链接成功");
 		} else {
+			System.out.println(client.getSessionId());
 			logger.error("客户端为空");
 		}
 	}
@@ -111,6 +112,7 @@ public class MessageEventHandler {
 		String targetClientId = message.getTargetClientId();
 		ClientInfo clientInfo = clientInfoRepository.findClientByclientid(targetClientId);
 		if (clientInfo != null && clientInfo.getConnected() != 0) {
+			
 			UUID uuid = new UUID(clientInfo.getMostsignbits(), clientInfo.getLeastsignbits());
 			System.out.println(uuid.toString());
 			MessageInfo sendData = new MessageInfo();
