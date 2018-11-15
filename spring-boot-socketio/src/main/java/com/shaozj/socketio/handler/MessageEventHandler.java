@@ -1,11 +1,13 @@
 package com.shaozj.socketio.handler;
 
+import java.util.Date;
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson.JSON;
 import com.corundumstudio.socketio.AckRequest;
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIOServer;
@@ -52,19 +54,7 @@ public class MessageEventHandler {
 	 */
 	@OnConnect
 	public void onConnect(SocketIOClient client) {
-		
-		System.out.println(JSON.toJSONString(client));
-		client.joinRoom("123");
-		System.out.println(JSON.toJSONString(client));
-
-		
-		
-		
-		
-		
-		
-		//		client.set("sessionId", client.getSessionId().toString());
-		/*String clientId = client.getHandshakeData().getSingleUrlParam("clientid");
+		String clientId = client.getHandshakeData().getSingleUrlParam("clientid");
 		ClientInfo clientInfo = clientInfoRepository.findClientByclientid(clientId);
 		if (clientInfo != null) {
 			Date nowTime = new Date(System.currentTimeMillis());
@@ -76,13 +66,11 @@ public class MessageEventHandler {
 			clientInfo.setLeastsignbits(client.getSessionId().getLeastSignificantBits());
 			clientInfo.setLastconnecteddate(nowTime);
 			clientInfoRepository.save(clientInfo);
-			
 			// jwt验证
 			logger.info("链接成功");
 		} else {
-			System.out.println(client.getSessionId());
 			logger.error("客户端为空");
-		}*/
+		}
 	}
 
 	/**
@@ -95,7 +83,6 @@ public class MessageEventHandler {
 	 */
 	@OnDisconnect
 	public void onDisconnect(SocketIOClient client) {
-		System.out.println(JSON.toJSONString(client));
 		logger.info("客户端断开连接, sessionId=" + client.getSessionId().toString());
 		String clientId = client.getHandshakeData().getSingleUrlParam("clientid");
 		ClientInfo clientInfo = clientInfoRepository.findClientByclientid(clientId);
@@ -105,8 +92,6 @@ public class MessageEventHandler {
 			clientInfo.setLeastsignbits(null);
 			clientInfoRepository.save(clientInfo);
 		}
-		client.leaveRoom("123");
-//		client.del("sessionId");
 	}
 
 	/**
@@ -123,29 +108,22 @@ public class MessageEventHandler {
 	@OnEvent(value = "messageevent")
 	public void onEvent(SocketIOClient client, AckRequest ackRequest, MessageInfo message) {
 		logger.info("接收到客户端消息");
-		/*String targetClientId = message.getTargetClientId();
+		String targetClientId = message.getTargetClientId();
 		ClientInfo clientInfo = clientInfoRepository.findClientByclientid(targetClientId);
 		if (clientInfo != null && clientInfo.getConnected() != 0) {
 			UUID uuid = new UUID(clientInfo.getMostsignbits(), clientInfo.getLeastsignbits());
+			System.out.println(uuid.toString());
 			MessageInfo sendData = new MessageInfo();
 			sendData.setSourceClientId(message.getSourceClientId());
 			sendData.setTargetClientId(message.getTargetClientId());
 			sendData.setMsgType("chat");
 			sendData.setMsgContent(message.getMsgContent());
 			client.sendEvent("messageevent", sendData);
-//			server.getClient(uuid).sendEvent("messageevent", sendData);
-			
+			server.getClient(uuid).sendEvent("messageevent", sendData);
 		}
 		if (ackRequest.isAckRequested()) {
-			
 			// ackRequest.sendAckData("服务器回答chatevent, userName=" + chat.getUserName() +
 			// ",message=" + chat.getMessage());
-		}*/
-		MessageInfo sendData = new MessageInfo();
-		sendData.setMsgType("chat");
-		sendData.setSourceClientId(message.getSourceClientId());
-		sendData.setTargetClientId(message.getTargetClientId());
-		sendData.setMsgContent(message.getMsgContent());
-		server.getRoomOperations("123").sendEvent("messageevent", sendData);
+		}
 	}
 }
