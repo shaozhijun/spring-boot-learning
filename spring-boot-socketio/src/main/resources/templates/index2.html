@@ -7,11 +7,21 @@
 <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
 
 <script type="text/javascript">
-	var socket = io.connect('ws://127.0.0.1:9099');
-	socket.on('queuecount',function(data){
-	    var personInfo = JSON.parse(data);
-	    $('#ssss').html(personInfo);
-	});
+	var ws = new io("ws://127.0.0.1:9099");
+	
+	ws.onopen = function(evt) {
+		console.log("Connection open ...");
+		ws.send("Hello WebSockets!");
+	};
+	 
+	ws.onmessage = function(evt) {
+		console.log("Received Message: " + evt.data);
+		ws.close();
+	};
+	 
+	ws.onclose = function(evt) {
+		console.log("Connection closed.");
+	};
 </script>
 </head>
 <body>

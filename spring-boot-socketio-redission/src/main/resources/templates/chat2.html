@@ -13,16 +13,16 @@
         <script type="text/javascript" src="/js/moment.js"></script>
         <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
         <script>
-            var clientid = 'testclient2';
-            var targetClientId = 'testclient1';
-            var socket = io.connect('http://127.0.0.1:9098?clientid=' + clientid);
+            var sourceId = 'testclient1';
+            var targetId = 'testclient2';
+            var socket = io.connect('http://127.0.0.1:9099?clientId=' + sourceId);
             socket.on('connect',function() {
                 output('<span class="connect-msg">Client has connected to the server!</span>');
             });
  
             socket.on('messageevent',
             function(data) {
-                output('<span class="username-msg">' + data.sourceClientId + ':</span> ' + data.msgContent);
+                output('<span class="username-msg">' + data.sourceId + ':</span> ' + data.content);
             });
  
             socket.on('disconnect',
@@ -37,11 +37,11 @@
             function sendMessage() {
                 var message = $('#msg').val();
                 $('#msg').val('');
+ 
                 var jsonObject = {
-                    sourceClientId: clientid,
-                    targetClientId: targetClientId,
-                    msgType: 'chat',
-                    msgContent: message
+               		sourceId: sourceId,
+               		targetId: targetId,
+                    content: message
                 };
                 socket.emit('messageevent', jsonObject);
             }
